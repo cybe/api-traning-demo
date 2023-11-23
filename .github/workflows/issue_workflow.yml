@@ -42,6 +42,6 @@ jobs:
           github-token: ${{ steps.get_workflow_token_target.outputs.token }}
           script: |
             const repoName = ${{ steps.parse.outputs.payload }};
-            github.octokit.rest.repos.createForAuthenticatedUser({
+            github.rest.repos.createForAuthenticatedUser({
               repoName,
             });
