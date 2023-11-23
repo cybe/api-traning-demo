@@ -30,3 +30,14 @@ jobs:
       - name: Show parsed data JSON
         run: |
           echo "${{ steps.parse.outputs.payload }}"
+      - name: Start Workflow Comment
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issueComment = context.payload.issue.number;
+            github.issues.createComment({
+              issue_number: issueComment,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Workflow started 🚀'
+            });
