@@ -1,0 +1,13 @@
+name: Issue Triggered Workflow
+
+on:
+  issues:
+    types: [opened, edited]
+  workflow_dispatch:
+
+jobs:
+  handle-issue:
+    runs-on: ubuntu-latest
+    steps:
+	    - name: checkout
+        uses: actions/checkout@v4.1.1
