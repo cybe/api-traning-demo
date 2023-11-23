@@ -23,7 +23,7 @@ jobs:
         uses: peter-murray/issue-forms-body-parser@v2.0.0
         with:
           github_token: ${{ steps.get_workflow_token_target.outputs.token }}
-          issue_id: 1
+          issue_id: ${{ github.event.issue.number }}
           separator: '###'
           label_marker_start: '>>'
           label_marker_end: '<<'
@@ -34,7 +34,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@v3
         with:
           token: ${{ steps.get_workflow_token_target.outputs.token }}
-          issue-number: 1
+          issue-number: ${{ github.event.issue.number }}
           body: 'Workflow started 🚀'
       - name: Create a New Repository
         uses: actions/github-script@v6
