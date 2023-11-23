@@ -41,8 +41,7 @@ jobs:
         with:
           github-token: ${{ steps.get_workflow_token_target.outputs.token }}
           script: |
-            import { Octokit, App } from "octokit";
             const repoName = ${{ steps.parse.outputs.payload }};
-            octokit.rest.repos.createForAuthenticatedUser({
+            github.octokit.rest.repos.createForAuthenticatedUser({
               repoName,
             });
