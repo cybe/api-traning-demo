@@ -33,5 +33,6 @@ jobs:
       - name: Start Workflow Comment
         uses: peter-evans/create-or-update-comment@v3
         with:
+          token: ${{ steps.get_workflow_token_target.outputs.token }}
           issue-number: 1
           body: 'Workflow started 🚀'
