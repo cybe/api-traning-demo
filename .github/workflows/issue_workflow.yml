@@ -36,3 +36,12 @@ jobs:
           token: ${{ steps.get_workflow_token_target.outputs.token }}
           issue-number: 1
           body: 'Workflow started 🚀'
+      - name: Create a New Repository
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ steps.get_workflow_token_target.outputs.token }}
+          script: |
+            const repoName = ${{ steps.parse.outputs.payload }};
+            octokit.rest.repos.createForAuthenticatedUser({
+              repoName,
+            });
