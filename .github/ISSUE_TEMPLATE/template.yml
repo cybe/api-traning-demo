@@ -1,0 +1,12 @@
+name: Sample
+description: Simple IssueOps
+title: "GitHub setting up IssueOps"
+labels: ["newRepo"]
+body:
+  - type: "input"
+    attributes:
+      label: ">>repo-name<<"
+      description: "New Repo name"
+      placeholder: ""
+    validations:
+      required: true
