@@ -31,13 +31,7 @@ jobs:
         run: |
           echo "${{ steps.parse.outputs.payload }}"
       - name: Start Workflow Comment
-        uses: actions/github-script@v6
+        uses: peter-evans/create-or-update-comment@v3
         with:
-          script: |
-            const issueComment = 1;
-            github.issues.createComment({
-              issue_number: issueComment,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'Workflow started 🚀'
-            });
+          issue-number: 1
+          body: 'Workflow started 🚀'
