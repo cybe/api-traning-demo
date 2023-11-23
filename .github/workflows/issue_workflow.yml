@@ -34,7 +34,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const issueComment = context.payload.issue.number;
+            const issueComment = 1;
             github.issues.createComment({
               issue_number: issueComment,
               owner: context.repo.owner,
